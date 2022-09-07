@@ -1,0 +1,42 @@
+{% extends 'account/base.html' %}
+{% block content %}
+    <div class="container w-50" style="min-height: 400px !important; font-size: 17px !important; font-family: arial, sans-serif;">
+        {% load widget_tweaks %}
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            {% if field.name == "genre" %}
+            {{ field.label_tag }}
+            <div class="input-group mb-3">
+                {{ field }}
+            </div>
+            {% elif field.name == "upload" %}
+            {{ field.label_tag }}
+            <div class="input-group mb-3">
+                {{ field }}
+            </div>
+            {% else %}
+            <div class="form-group">
+                {{ field.label_tag }}
+
+                {% if form.is_bound %}
+                  {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                      <div class="invalid-feedback">
+                        {{ error }}
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                  {% endif %}
+                {% else %}
+                  {% render_field field class="form-control" %}
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary" style="font-size: 17px !important; font-family: arial, sans-serif;">Save</button>
+        </form>
+    </div>
+{% endblock %}

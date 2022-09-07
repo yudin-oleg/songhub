@@ -1,0 +1,37 @@
+{% extends 'account/base.html' %} &nbsp;{% block content %}
+<div class="container w-50" style="min-height: 400px !important;">
+    {% load widget_tweaks %}
+    <form method="post" enctype="multipart/form-data" style="font-size: 17px !important; font-family: arial, sans-serif;">
+        {% csrf_token %}
+        {% for field in registration_form %}
+            {% if field.name == "avatar" %}
+            {{ field.label_tag }}
+            <div class="input-group mb-3">
+                {{ field }}
+            </div>
+            {% else %}
+            <div class="form-group">
+                {{ field.label_tag }}
+
+                {% if form.is_bound %}
+                  {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                      <div class="invalid-feedback">
+                        {{ error }}
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                  {% endif %}
+                {% else %}
+                  {% render_field field class="form-control" %}
+                {% endif %}
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary" style="font-size: 17px !important; font-family: arial, sans-serif;">Register</button>
+    </form>
+</div>
+{% endblock content %}

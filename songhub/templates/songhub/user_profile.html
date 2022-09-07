@@ -1,0 +1,77 @@
+{% extends 'account/base.html' %}
+{% block content %}
+<div class="container-fluid p-0 h-25">
+    <div class="information">
+        <div class="container h-100 p-0">
+            <div class="container-fluid p-0 h-50">
+                <div class="slogan">
+                    <div class="trait"></div>
+                    <h2>free music hub for you</h2>
+                    <div class="trait"></div>
+                </div>
+            </div>
+            <div class="container-fluid p-0 h-50">
+                <div class="container-fluid p-3 h-50">
+                    <ul class="genre">
+                        <li>
+                            <a href="?genre=">all</a>
+                        </li>
+                        {% for genre in GENRES %}
+                        <li>
+                            <a href="?genre={{ genre.0 }}">{{ genre.1 }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+<!--                        I'm planning to make pagination, filter dropdown and search here-->
+                <div class="container-fluid p-0 h-50" style="width: 100%;">
+                    <div class="toolbar">
+                        <div style="width: 40%;">
+                            <div class="pagination" style="width: 100%;">
+                                <span class="step-links">
+                                    {% if songs_page.has_previous %}
+                                        <a href="?page=1">&laquo; first</a>
+                                        <a href="?page={{ songs_page.previous_page_number }}">previous</a>
+                                    {% endif %}
+
+                                    <span class="current">
+                                        Page {{ songs_page.number }} of {{ songs_page.paginator.num_pages }}
+                                    </span>
+
+                                    {% if songs_page.has_next %}
+                                        <a href="?page={{ songs_page.next_page_number }}">next</a>
+                                        <a href="?page={{ songs_page.paginator.num_pages }}">last &raquo;</a>
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div style="width: 60%;">
+<!--here will be section with filters and search-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="min-height:400px !important; border-top: solid black;">
+{% for song in songs_page %}
+    <div class="song">
+        <div class="song-info">
+            <div class="name">
+                {{ song.name }}
+            </div>
+            <div> - </div>
+            <div class="singer">
+                {{ song.singer }}
+            </div>
+            <div> | </div>
+            <a href="{% url 'delete_song' song.pk %}">Delete song</a>
+        </div>
+        <audio controls src= "{{ song.upload.url }}" class="audio-style"></audio>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

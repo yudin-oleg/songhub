@@ -1,0 +1,62 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <title>Songhub</title>
+</head>
+<body>
+    <header>
+        <div class="container-fluid p-0 h-25">
+            <div class="heading">
+                <div class="container h-100">
+                    {% if user.is_authenticated %}
+                    <ul class="menu">
+                        <li>
+                            <a href="{% url 'add_song' %}">Add New Song</a>
+                        </li><span>|</span>
+                        <li>
+                            <a href="{% url 'user_profile' user.pk%}">Watch My Music</a>
+                        </li><span>|</span>
+                        <li>
+                            <a href="{% url 'change' %}">Change Profile</a>
+                        </li><span>|</span>
+                        <li>
+                            <a href="{% url 'logout' %}">Log Out</a>
+                        </li>
+                    </ul>
+
+                    {% else %}
+                    <ul class="menu">
+                        <li>
+                            <a href="{% url 'login' %}">Log In</a>
+                        </li><span>|</span>
+                        <li>
+                            <a href="{% url 'register' %}">Sign Up</a>
+                        </li>
+                    </ul>
+                    {% endif %}
+
+                    <div class="page-title">
+                        <h1><a href="/">Songhub</a></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid p-0">
+        <div class="songs-list">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+    <footer>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>

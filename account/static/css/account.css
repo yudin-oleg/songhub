@@ -1,0 +1,155 @@
+.page-title{
+    margin-top: 40px;
+}
+.heading{
+	background: black;
+}
+.menu{
+    float: right;
+}
+.menu li{
+    display: inline-block;
+}
+h1{
+    display: inline;
+}
+h1 a{
+    font-family: 'Courgette', cursive, arial, sans-serif;
+    text-decoration: none;
+    color: white;
+    font-size:65px;
+}
+h1 a:hover{
+    text-decoration: none;
+    color: #CCDBD5;
+}
+.menu li a{
+    text-decoration: none;
+    color: white;
+    font-size:17px;
+}
+.menu li a:hover{
+    text-decoration: none;
+    color: #CCDBD5;
+}
+.menu span{
+    color: white;
+    font-size:15px;
+}
+.information{
+    background: #E9EEEC;
+}
+.slogan{
+    height: 80px;
+    line-height: 100px;
+    text-align: center;
+}
+.trait {
+    position: relative;
+    height: 1px;
+    top: -8px;
+    margin-left: 12px;
+    margin-right: 12px;
+    border-bottom: solid;
+    border-width: 1px;
+    width: 125px;
+    display: inline-block;
+}
+h2 {
+    color: #151515;
+    font-weight: normal;
+    font-family: arial,tahoma, arial, sans-serif;
+    font-size: 25px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.genre{
+    display: flex;
+    justify-content: space-between;
+}
+.genre li{
+    display: inline-block;
+    vertical-align:middle;
+}
+.genre li a{
+    text-shadow: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: bold;
+    vertical-align: baseline;
+    color: #fff;
+    margin: 0px 1px 1px 0px;
+    -webkit-transition: background-color .3s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+    transition: background-color .3s ease, border .2s ease, color .2s ease, opacity .2s ease-in-out;
+    background-color: #151515;
+    padding: 9px 15px 9px 15px;
+    font-family: arial,sans-serif;
+    text-decoration: none;
+}
+.genre li :hover{
+    background-color: #9cd121 !important;
+}
+.genre li :focus{
+    background-color: #9cd121 !important;
+}
+.songs-list{
+    background-color: E9EEEC;
+}
+.song{
+    margin: auto;
+    width: 30%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.audio-style{
+    width: 100%;
+}
+.song-info{
+    display: flex;
+    font-family: arial,sans-serif;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.song-info div{
+    margin-right: 4px;
+}
+.toolbar{
+  display: flex;
+  flex-direction: row;
+  margin-top: 6px;
+}
+.pagination{
+    font-family: arial,sans-serif;
+    font-size: 17px;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.current{
+    margin-right: 4px;
+}
+.step-links{
+    margin: auto;
+}
+.step-links a{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.step-links a:hover{
+    color: #545249;
+}
+.song-info a{
+    text-decoration: none;
+    color: black;
+}
+.song-info a:hover{
+    color: #545249;
+}
+footer{
+    height: 100px;
+    background-color: black;
+}
