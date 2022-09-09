@@ -1,7 +1,9 @@
-Django~=3.2.4
-mutagen~=1.45.1
-django-filter~=2.4.0
-django-widget-tweaks
-Pillow
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+Footer
 
-djangorestframework~=3.12.4
